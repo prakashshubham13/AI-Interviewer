@@ -13,6 +13,7 @@ const LeftPanel = () => {
           padding: "1rem 0",
           display: "flex",
           justifyContent: "space-between",
+          alignItems: "center",
           // background: "red"
         }}
       >
@@ -43,7 +44,7 @@ const LeftPanel = () => {
 const styles = {
   videoSection: {
     position: "relative",
-    flex: 2,
+    flex: 3,
     padding: "1rem",
     borderRadius: "0.5rem",
     // backgroundColor: "green",

@@ -3,9 +3,23 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+font-size: 16px;
+}
 body {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
-  font-size: 16px;
+}
+/* Smaller font size for smaller screens */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
 }
