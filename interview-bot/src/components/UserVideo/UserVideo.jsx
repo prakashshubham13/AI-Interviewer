@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./UserVideo.module.css";
 import AIVideo from "../AIVideo/AIVideo";
+import { useDispatch } from "react-redux";
+import { addTranscript } from "../../redux/transcriptSlice";
 
 const UserVideo = () => {
   const videoRef = useRef(null);
@@ -10,7 +12,7 @@ const UserVideo = () => {
   const [recording, setRecording] = useState(false);
   const [downloadUrl, setDownloadUrl] = useState("");
   const mediaRecorderRef = useRef(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     const getPermissions = async () => {
       try {
@@ -42,6 +44,8 @@ const UserVideo = () => {
           const transcript = event.results[i][0].transcript;
           if (event.results[i].isFinal) {
             console.log("Final:", transcript);
+            dispatch(addTranscript({ audio: transcript }));
+
           } else {
             console.log("Interim:", transcript);
           }
